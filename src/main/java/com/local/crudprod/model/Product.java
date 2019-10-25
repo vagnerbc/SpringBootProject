@@ -1,14 +1,35 @@
 package com.local.crudprod.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Product {
+
+    @Id
+    @GeneratedValue()
+    private long id;
+    @Column(nullable = false)
     private String name;
+    @Column()
     private String description;
+    @Column()
     private Double price;
+
+    public Product() {
+    }
 
     public Product(String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
